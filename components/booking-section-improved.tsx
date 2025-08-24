@@ -11,17 +11,24 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Clock, User, Phone, Mail, MessageSquare, CheckCircle } from "lucide-react"
 
+interface FormData {
+  name: string
+  email: string
+  phone: string
+  notes: string
+}
+
 export function BookingSection() {
-  const [selectedService, setSelectedService] = useState("")
-  const [selectedDate, setSelectedDate] = useState("")
-  const [selectedTime, setSelectedTime] = useState("")
-  const [formData, setFormData] = useState({
+  const [selectedService, setSelectedService] = useState<string>("")
+  const [selectedDate, setSelectedDate] = useState<string>("")
+  const [selectedTime, setSelectedTime] = useState<string>("")
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     notes: "",
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
   const services = [
     { id: "signature-manicure", name: "Signature Manicure", price: "$45", duration: "45 min" },
@@ -38,8 +45,8 @@ export function BookingSection() {
     "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM",
   ]
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+  const handleInputChange = (field: keyof FormData, value: string) => {
+    setFormData((prev: FormData) => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -61,7 +68,6 @@ export function BookingSection() {
     
     // Simulate API call
     setTimeout(() => {
-      console.log("Booking submitted:", { selectedService, selectedDate, selectedTime, formData })
       
       toast.success(
         "✅ Appointment Request Sent! We'll confirm within 1 hour",
@@ -132,7 +138,7 @@ export function BookingSection() {
                     Select Service *
                   </Label>
                   <Select value={selectedService} onValueChange={setSelectedService}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full" id="service">
                       <SelectValue placeholder="Choose your service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -172,7 +178,7 @@ export function BookingSection() {
                     Preferred Time * <span className="text-xs text-gray-500">⏰ Most Popular Times Book Fast</span>
                   </Label>
                   <Select value={selectedTime} onValueChange={setSelectedTime}>
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full" id="time">
                       <SelectValue placeholder="Choose your time" />
                     </SelectTrigger>
                     <SelectContent>

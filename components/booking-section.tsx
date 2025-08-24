@@ -11,11 +11,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Clock, User, Phone, Mail, MessageSquare, CheckCircle } from "lucide-react"
 
+interface FormData {
+  name: string
+  email: string
+  phone: string
+  notes: string
+}
+
 export function BookingSection() {
-  const [selectedService, setSelectedService] = useState("")
-  const [selectedDate, setSelectedDate] = useState("")
-  const [selectedTime, setSelectedTime] = useState("")
-  const [formData, setFormData] = useState({
+  const [selectedService, setSelectedService] = useState<string>("")
+  const [selectedDate, setSelectedDate] = useState<string>("")
+  const [selectedTime, setSelectedTime] = useState<string>("")
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
@@ -52,14 +59,13 @@ export function BookingSection() {
     "5:30 PM",
   ]
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+  const handleInputChange = (field: keyof FormData, value: string) => {
+    setFormData((prev: FormData) => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle booking submission
-    console.log("Booking submitted:", { selectedService, selectedDate, selectedTime, formData })
   }
 
   return (

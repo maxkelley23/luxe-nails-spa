@@ -9,8 +9,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { X, Gift, Sparkles } from "lucide-react"
 
 export function EmailPopup() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [email, setEmail] = useState("")
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+  const [email, setEmail] = useState<string>("")
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,7 +23,6 @@ export function EmailPopup() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle email submission
-    console.log("Email submitted:", email)
     setIsVisible(false)
   }
 

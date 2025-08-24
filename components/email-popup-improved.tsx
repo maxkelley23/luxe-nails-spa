@@ -33,7 +33,6 @@ export function EmailPopup() {
     
     // Simulate submission
     setTimeout(() => {
-      console.log("Email submitted:", email)
       
       // Show success toast with discount code
       toast.success(
@@ -88,6 +87,7 @@ export function EmailPopup() {
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+              aria-label="Close promotional popup"
             >
               <X className="h-5 w-5" />
             </button>

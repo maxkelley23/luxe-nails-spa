@@ -3,6 +3,15 @@
 import { useEffect, useState } from "react"
 import { Clock } from "lucide-react"
 
+interface BusinessHours {
+  open: number
+  close: number
+}
+
+interface WeeklySchedule {
+  [key: number]: BusinessHours
+}
+
 export function OpenNowIndicator() {
   const [isOpen, setIsOpen] = useState<boolean | null>(null)
   const [nextOpenTime, setNextOpenTime] = useState<string>("")
@@ -16,7 +25,7 @@ export function OpenNowIndicator() {
       const currentTime = hour * 60 + minute // Convert to minutes
 
       // Business hours
-      const schedule = {
+      const schedule: WeeklySchedule = {
         0: { open: 10 * 60, close: 17 * 60 }, // Sunday: 10AM - 5PM
         1: { open: 9 * 60, close: 19 * 60 },  // Monday: 9AM - 7PM
         2: { open: 9 * 60, close: 19 * 60 },  // Tuesday: 9AM - 7PM

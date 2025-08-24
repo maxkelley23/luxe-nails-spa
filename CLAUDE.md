@@ -1,74 +1,64 @@
-# CLAUDE.md
+# Claude Code Task Management Guide
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## Documentation Available
 
-## Project Overview
+📚 **Project Documentation**: Check the documentation files in this directory for project-specific setup instructions and guides.
+**Project Tasks**: Check the tasks directory in documentation/tasks for the list of tasks to be completed. Use the CLI commands below to interact with them.
 
-This is a Next.js 15 web application for Luxe Nails & Spa, a luxury nail salon. The application uses React 19, TypeScript, Tailwind CSS v4, and shadcn/ui components.
+## MANDATORY Task Management Workflow
 
-## Development Commands
+🚨 **YOU MUST FOLLOW THIS EXACT WORKFLOW - NO EXCEPTIONS** 🚨
 
+### **STEP 1: DISCOVER TASKS (MANDATORY)**
+You MUST start by running this command to see all available tasks:
 ```bash
-# Install dependencies (uses pnpm)
-pnpm install
-
-# Run development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Run production server
-pnpm start
-
-# Run linting
-pnpm lint
+task-manager list-tasks
 ```
 
-## Architecture
+### **STEP 2: START EACH TASK (MANDATORY)**
+Before working on any task, you MUST mark it as started:
+```bash
+task-manager start-task <task_id>
+```
 
-### Technology Stack
-- **Framework**: Next.js 15.2.4 with App Router
-- **UI Library**: React 19
-- **Styling**: Tailwind CSS v4 with CSS variables
-- **Component Library**: shadcn/ui (New York style)
-- **Fonts**: Playfair Display (serif) and Inter (sans-serif)
-- **Icons**: Lucide React
+### **STEP 3: COMPLETE OR CANCEL EACH TASK (MANDATORY)**
+After finishing implementation, you MUST mark the task as completed, or cancel if you cannot complete it:
+```bash
+task-manager complete-task <task_id> "Brief description of what was implemented"
+# or
+task-manager cancel-task <task_id> "Reason for cancellation"
+```
 
-### Project Structure
-- `/app` - Next.js App Router pages and layouts
-- `/components` - React components organized by feature
-- `/components/ui` - shadcn/ui components
-- `/lib` - Utility functions and shared logic
-- `/hooks` - Custom React hooks
-- `/public` - Static assets including images
+## Task Files Location
 
-### Key Configuration Notes
-- TypeScript path alias: `@/*` maps to project root
-- Build errors are currently ignored (eslint and TypeScript)
-- Images are unoptimized in production build
-- Using Tailwind CSS v4 with PostCSS configuration
+📁 **Task Data**: Your tasks are organized in the `documentation/tasks/` directory:
+- Task JSON files contain complete task information
+- Use ONLY the `task-manager` commands listed above
+- Follow the mandatory workflow sequence for each task
 
-### Component Architecture
-The main page (`app/page.tsx`) is composed of distinct section components:
-- LoadingAnimation - Initial page load animation
-- AnnouncementBar - Top promotional banner
-- Navigation - Main navigation menu
-- HeroSection - Landing hero with CTA
-- ServicesSection - Service offerings
-- GallerySection - Image gallery showcase
-- BookingSection - Appointment booking interface
-- ReviewsSection - Customer testimonials
-- SocialProofSection - Trust indicators
-- PricingSection - Service pricing
-- Footer - Site footer
-- EmailPopup - Email collection modal
-- ScrollToTop - Back to top button
-- FloatingBookingButton - Persistent booking CTA
+## MANDATORY Task Workflow Sequence
 
-### Styling Conventions
-- Uses Tailwind CSS utility classes
-- Custom gradient classes defined in globals.css
-- Component-specific styling uses cn() utility from lib/utils
-- Consistent use of color tokens for brand colors (pink, purple, gold)
-- Responsive design with mobile-first approach
+🔄 **For EACH individual task, you MUST follow this sequence:**
+
+1. 📋 **DISCOVER**: `task-manager list-tasks` (first time only)
+2. 🚀 **START**: `task-manager start-task <task_id>` (mark as in progress)
+3. 💻 **IMPLEMENT**: Do the actual coding/implementation work
+4. ✅ **COMPLETE**: `task-manager complete-task <task_id> "What was done"` (or cancel with `task-manager cancel-task <task_id> "Reason"`)
+5. 🔁 **REPEAT**: Go to next task (start from step 2)
+
+## Task Status Options
+
+- `pending` - Ready to work on
+- `in_progress` - Currently being worked on  
+- `completed` - Successfully finished
+- `blocked` - Cannot proceed (waiting for dependencies)
+- `cancelled` - No longer needed
+
+## CRITICAL WORKFLOW RULES
+
+❌ **NEVER skip** the `task-manager start-task` command
+❌ **NEVER skip** the `task-manager complete-task` command  (use `task-manager cancel-task` if a task is not planned, not required, or you must stop it)
+❌ **NEVER work on multiple tasks simultaneously**
+✅ **ALWAYS complete one task fully before starting the next**
+✅ **ALWAYS provide completion details in the complete command**
+✅ **ALWAYS follow the exact 3-step sequence: list → start → complete (or cancel if not required)**

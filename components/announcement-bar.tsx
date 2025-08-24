@@ -4,7 +4,7 @@ import { useState } from "react"
 import { X, Star, Phone } from "lucide-react"
 
 export function AnnouncementBar() {
-  const [isVisible, setIsVisible] = useState(true)
+  const [isVisible, setIsVisible] = useState<boolean>(true)
 
   if (!isVisible) return null
 

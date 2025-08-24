@@ -5,18 +5,26 @@ import { Button } from "@/components/ui/button"
 import { ChevronUp } from "lucide-react"
 
 export function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState<boolean>(false)
 
   useEffect(() => {
+    let ticking = false
+
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (window.pageYOffset > 300) {
+            setIsVisible(true)
+          } else {
+            setIsVisible(false)
+          }
+          ticking = false
+        })
+        ticking = true
       }
     }
 
-    window.addEventListener("scroll", toggleVisibility)
+    window.addEventListener("scroll", toggleVisibility, { passive: true })
     return () => window.removeEventListener("scroll", toggleVisibility)
   }, [])
 

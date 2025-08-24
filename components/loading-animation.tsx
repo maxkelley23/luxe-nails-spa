@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 
 export function LoadingAnimation() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const timer = setTimeout(() => {
