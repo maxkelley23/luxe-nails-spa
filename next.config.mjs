@@ -22,7 +22,17 @@ const nextConfig = {
   // Bundle optimization
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      config.optimization.splitChunks.cacheGroups.default.minChunks = 2
+      // Ensure the nested structure exists
+      if (!config.optimization) config.optimization = {}
+      if (!config.optimization.splitChunks) config.optimization.splitChunks = {}
+      if (!config.optimization.splitChunks.cacheGroups) config.optimization.splitChunks.cacheGroups = {}
+      
+      // Set default minChunks if it exists
+      if (config.optimization.splitChunks.cacheGroups.default) {
+        config.optimization.splitChunks.cacheGroups.default.minChunks = 2
+      }
+      
+      // Add vendor cache group
       config.optimization.splitChunks.cacheGroups.vendor = {
         test: /[\\/]node_modules[\\/]/,
         name: 'vendors',
