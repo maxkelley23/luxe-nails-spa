@@ -1,12 +1,28 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Instagram, Heart, Share2 } from "lucide-react"
 
+type FilterId = 'all' | 'manicure' | 'extensions' | 'nail-art' | 'pedicure'
+
+interface GalleryFilter {
+  id: FilterId
+  name: string
+}
+
+interface GalleryItem {
+  id: number
+  image: string
+  category: FilterId
+  title: string
+  likes: number
+}
+
 export function GallerySection() {
-  const [activeFilter, setActiveFilter] = useState("all")
+  const [activeFilter, setActiveFilter] = useState<FilterId>("all")
 
   const filters = [
     { id: "all", name: "All Work" },
@@ -132,10 +148,13 @@ export function GallerySection() {
               className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300"
             >
               <div className="aspect-square overflow-hidden">
-                <img
+                <Image
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 

@@ -8,13 +8,11 @@ export const scrollToSection = (sectionId: string) => {
     const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   } else {
-    console.error(`Element with id "${sectionId}" not found`)
   }
 }
 
 // Handle booking button clicks
 export const handleBookingClick = () => {
-  console.log("handleBookingClick called")
   scrollToSection('booking')
   toast("📅 Select your preferred date and time below", {
     duration: 3000,
@@ -54,7 +52,6 @@ export const handleCallClick = () => {
 
 // Handle email submission (for footer newsletter)
 export const handleNewsletterSubmit = (email: string) => {
-  console.log("Newsletter signup:", email)
   toast.success("✅ Welcome to our VIP list! Check your email for exclusive offers.", {
     duration: 5000,
     style: {

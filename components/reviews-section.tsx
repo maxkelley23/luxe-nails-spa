@@ -7,8 +7,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Star, Quote, ChevronLeft, ChevronRight, Heart, ThumbsUp } from "lucide-react"
 
+interface Review {
+  id: number
+  name: string
+  avatar: string
+  rating: 1 | 2 | 3 | 4 | 5
+  service: string
+  date: string
+  review: string
+  verified: boolean
+  helpful: number
+}
+
 export function ReviewsSection() {
-  const [currentReview, setCurrentReview] = useState(0)
+  const [currentReview, setCurrentReview] = useState<number>(0)
 
   const reviews = [
     {
@@ -127,7 +139,13 @@ export function ReviewsSection() {
           <Card className="bg-gradient-to-br from-pink-50 to-purple-50 border-pink-200 overflow-hidden">
             <CardContent className="p-8 md:p-12">
               <div className="flex items-center justify-between mb-6">
-                <Button variant="ghost" size="sm" onClick={prevReview} className="text-gray-600 hover:text-hot-pink">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={prevReview} 
+                  className="text-gray-600 hover:text-hot-pink"
+                  aria-label="Previous review"
+                >
                   <ChevronLeft className="h-5 w-5" />
                 </Button>
                 <div className="flex space-x-2">
@@ -138,10 +156,18 @@ export function ReviewsSection() {
                       className={`w-2 h-2 rounded-full transition-colors ${
                         index === currentReview ? "bg-hot-pink" : "bg-gray-300"
                       }`}
+                      aria-label={`Go to review ${index + 1}`}
+                      aria-current={index === currentReview ? "true" : "false"}
                     />
                   ))}
                 </div>
-                <Button variant="ghost" size="sm" onClick={nextReview} className="text-gray-600 hover:text-hot-pink">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={nextReview} 
+                  className="text-gray-600 hover:text-hot-pink"
+                  aria-label="Next review"
+                >
                   <ChevronRight className="h-5 w-5" />
                 </Button>
               </div>

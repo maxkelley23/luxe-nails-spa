@@ -6,7 +6,7 @@ import { Menu, X, Phone } from "lucide-react"
 import { handleBookingClick } from "@/lib/button-actions"
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const navItems = [
     { name: "Services", href: "#services" },
@@ -17,7 +17,6 @@ export function Navigation() {
   ]
 
   const handleBookNowClick = () => {
-    console.log("Book Now button clicked")
     handleBookingClick()
   }
 
@@ -56,7 +55,12 @@ export function Navigation() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 hover:text-hot-pink p-2">
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="text-gray-700 hover:text-hot-pink p-2"
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+            >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
@@ -64,7 +68,7 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden" role="navigation" aria-label="Mobile navigation">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/90 backdrop-blur-md rounded-lg mt-2">
               {navItems.map((item) => (
                 <a

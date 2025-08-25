@@ -1,0 +1,25 @@
+# App Flow Document for Luxe Nails Spa Web Application
+
+## Onboarding and Sign-In/Sign-Up
+A visitor arrives at the Luxe Nails Spa website simply by entering the URL or clicking a link from search results or social media. There is no account creation or sign-in process in the initial version of the site, so users immediately see public content without any barriers. Password recovery and user authentication are not part of this phase, and there are no prompts to register or log in.
+
+## Main Dashboard or Home Page
+Upon landing, the user sees the Home page with a prominent header featuring the spa’s logo and main navigation links labeled Home, Services, Gallery, and Contact Us. On desktop screens, these links are laid out horizontally across the top. On mobile devices, a hamburger icon replaces the navigation links and, when tapped, slides in a full-screen menu. Below the header, a hero image welcomes visitors alongside a brief introduction to the spa’s ethos and styling. Call-to-action buttons invite users to explore services or browse the gallery. Scrolling down reveals key highlights of featured treatments. At the bottom of every page, a footer displays contact details, hours of operation, and social media links so users can easily connect or find directions.
+
+## Detailed Feature Flows and Page Transitions
+When the user clicks the Services link in the header or a call-to-action button, they transition to the Services page. On this page, a grid layout displays cards for each treatment offering. Each card shows a thumbnail image, the service name, and a concise description. The user can scroll vertically through the list to discover all available treatments.
+
+If the user selects the Gallery link, they reach the Gallery page where a carousel component rotates through high-quality images of nail art and spa ambiance. Navigation arrows on either side of the carousel allow the user to move forward or backward through the photos. The carousel adapts its layout depending on screen size, showing larger previews on desktop and a swipe-enabled slider on mobile.
+
+Choosing the Contact Us page directs the visitor to a form section. Here the user sees input fields for name, email, phone number, and a message box. As they type, inline validation messages appear if any required field is left blank or if the email address does not follow a valid format. Once all fields pass validation, the user taps the submit button. The page then displays a confirmation message inline, thanking them and providing a time frame for a response. The user remains on the Contact page with the form cleared, ensuring they can send another inquiry if needed.
+
+Throughout these pages, the header remains fixed so the user can easily switch between Home, Services, Gallery, and Contact Us at any time. On mobile, tapping the menu icon again closes the navigation sheet and returns focus to the content.
+
+## Settings and Account Management
+Since there is no user registration or authentication in this version, there are no settings or account management pages. All visitors have the same access to public content, and there is no profile editing, password management, or notification preferences to configure. If the user wishes to return to the main experience, they simply use the header navigation to go back to any page.
+
+## Error States and Alternate Paths
+If the user types an incorrect route into the address bar, they see a standard not-found page with a message that the page cannot be located and a link back to the Home page. During form submission, if required fields are missing or the email format is invalid, red error text appears below each problematic field until the user corrects the input. If the network connection drops while loading images in the gallery or services page, the component shows a placeholder background with alt text describing the image’s subject so the user can still understand the content. In the unlikely event that the contact form cannot reach the server, an inline notification appears above the form explaining that the message could not be sent and inviting the user to retry or call the spa directly.
+
+## Conclusion and Overall App Journey
+From the moment a visitor lands on the Luxe Nails Spa website, they experience a seamless flow through the key sections. The journey begins at the Home page, where they gain an immediate sense of the brand. With a single click, they move to Services to explore offerings. Another click brings them to the Gallery for visual inspiration. Finally, the Contact Us page allows them to easily send an inquiry and receive instant feedback. Throughout, intuitive navigation and responsive layouts ensure the user always knows where they are and how to return to any section. This streamlined path from discovery to inquiry captures the user’s attention and guides them naturally toward contacting the spa.

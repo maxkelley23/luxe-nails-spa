@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Star, Award, Clock, MapPin } from "lucide-react"
 import { OpenNowIndicator } from "@/components/open-now-indicator"
@@ -10,7 +11,13 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img src="/luxury-nail-salon-interior-with-pink-and-purple-li.png" alt="Luxe Nails & Spa Interior" className="w-full h-full object-cover" />
+        <Image
+          src="/luxury-nail-salon-interior-with-pink-and-purple-li.png"
+          alt="Luxe Nails & Spa Interior"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-purple-900/30 to-pink-900/40"></div>
       </div>
 
