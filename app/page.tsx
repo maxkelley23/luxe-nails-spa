@@ -1,3 +1,5 @@
+"use client"
+
 import dynamic from "next/dynamic"
 import { ToastProvider } from "@/components/toast-provider"
 import { Navigation } from "@/components/navigation"
