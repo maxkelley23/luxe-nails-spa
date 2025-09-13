@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.486 0.182 258.669); /* Blue primary */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -19,31 +19,31 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(0.486 0.182 258.669);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.486 0.182 258.669);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* Added luxury nail salon color palette */
-  --hot-pink: #ff1493;
-  --purple: #8b5cf6;
-  --gold: #ffd700;
-  --charcoal: #2d3748;
-  --soft-pink: #fdf2f8;
+  /* ProdSafe Security-focused color palette */
+  --security-blue: #2563eb;
+  --security-green: #10b981;
+  --warning-orange: #f59e0b;
+  --danger-red: #ef4444;
+  --neutral-gray: #6b7280;
 }
 
 .dark {
@@ -133,29 +133,43 @@
   }
 }
 
-/* Added custom utility classes for luxury design */
-.gradient-hot-pink {
-  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+/* ProdSafe Security-focused utility classes */
+.gradient-security {
+  background: linear-gradient(135deg, var(--security-blue) 0%, #1d4ed8 100%);
 }
 
-.gradient-purple {
-  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+.gradient-success {
+  background: linear-gradient(135deg, var(--security-green) 0%, #059669 100%);
 }
 
-.text-hot-pink {
-  color: var(--hot-pink);
+.text-security-blue {
+  color: var(--security-blue);
 }
 
-.text-luxury-purple {
-  color: var(--purple);
+.text-security-green {
+  color: var(--security-green);
 }
 
-.text-gold {
-  color: var(--gold);
+.text-warning-orange {
+  color: var(--warning-orange);
 }
 
-.bg-soft-pink {
-  background-color: var(--soft-pink);
+.text-danger-red {
+  color: var(--danger-red);
+}
+
+.bg-security-blue {
+  background-color: var(--security-blue);
+}
+
+.security-card-hover {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.security-card-hover:hover {
+  border-color: var(--security-blue);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
 }
 
 .glassmorphism {

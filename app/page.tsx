@@ -1,41 +1,25 @@
-import { ToastProvider } from "@/components/toast-provider"
-import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/hero-section-improved"
-import { ServicesSection } from "@/components/services-section"
-import { GallerySection } from "@/components/gallery-section"
-import { BookingSection } from "@/components/booking-section-improved"
-import { ReviewsSection } from "@/components/reviews-section"
-import { SocialProofSection } from "@/components/social-proof-section"
-import { PricingSection } from "@/components/pricing-section-improved"
-import { Footer } from "@/components/footer"
-import { AnnouncementBar } from "@/components/announcement-bar"
-import { EmailPopup } from "@/components/email-popup-improved"
-import { ScrollToTop } from "@/components/scroll-to-top"
-import { FloatingBookingButton } from "@/components/floating-booking-button-improved"
-import { WhatsAppButton } from "@/components/whatsapp-button"
-import { LoadingAnimation } from "@/components/loading-animation"
+import { Navbar } from '@/components/layout/navbar'
+import { Footer } from '@/components/layout/footer'
+import { HeroSection } from '@/components/landing/hero-section'
+import { ProblemSection } from '@/components/landing/problem-section'
+import { HowItWorksSection } from '@/components/landing/how-it-works-section'
+import { FeaturesSection } from '@/components/landing/features-section'
+import { PricingSection } from '@/components/landing/pricing-section'
+import { FAQSection } from '@/components/landing/faq-section'
 
 export default function Home() {
   return (
     <>
-      <ToastProvider />
-      <LoadingAnimation />
-      <AnnouncementBar />
+      <Navbar />
       <main className="min-h-screen">
-        <Navigation />
         <HeroSection />
-        <ServicesSection />
-        <GallerySection />
-        <BookingSection />
-        <ReviewsSection />
-        <SocialProofSection />
+        <ProblemSection />
+        <HowItWorksSection />
+        <FeaturesSection />
         <PricingSection />
-        <Footer />
+        <FAQSection />
       </main>
-      <EmailPopup />
-      <ScrollToTop />
-      <FloatingBookingButton />
-      <WhatsAppButton />
+      <Footer />
     </>
   )
 }
