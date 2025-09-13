@@ -6,5 +6,3 @@ export const createServerSupabaseClient = () => {
   const cookieStore = cookies()
   return createServerComponentClient<Database>({ cookies: () => cookieStore })
 }
-
-export const supabaseServer = createServerSupabaseClient()
