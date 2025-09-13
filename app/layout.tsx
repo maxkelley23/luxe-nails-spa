@@ -1,13 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Inter } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-playfair",
-})
+import { Providers } from '@/components/providers'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,10 +12,25 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Luxe Nails & Spa - Premium Nail Care Experience",
+  title: "ProdSafe - Security Scanning for AI-Generated Code",
   description:
-    "Experience luxury nail care with our premium services, expert technicians, and relaxing spa atmosphere. Book your appointment today.",
-  generator: "v0.app",
+    "Scan your AI-generated code for security vulnerabilities in 60 seconds. Get plain-English fixes you can paste into ChatGPT or Claude.",
+  keywords: "security scanning, AI code, vulnerability detection, code security",
+  authors: [{ name: "ProdSafe Team" }],
+  creator: "ProdSafe",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://prodsafe.com",
+    siteName: "ProdSafe",
+    title: "ProdSafe - Security Scanning for AI-Generated Code",
+    description: "Scan your AI-generated code for security vulnerabilities in 60 seconds.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ProdSafe - Security Scanning for AI-Generated Code",
+    description: "Scan your AI-generated code for security vulnerabilities in 60 seconds.",
+  },
 }
 
 export default function RootLayout({
@@ -28,8 +39,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <body className="font-inter antialiased min-h-screen bg-background">
+        <Providers>
+          {children}
+          <Toaster />
+        </Providers>
+      </body>
     </html>
   )
 }
